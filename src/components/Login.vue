@@ -1,21 +1,23 @@
 <template>
-  <div class="bg-black fixed w-full h-full flex justify-center items-center" v-if="!signUp">
-    <div class="bg-white p-5 rounded-3xl w-96 h-96">
-      <form @submit.prevent class="bg-blue-200 p-5 rounded-3xl m-5">
+  <div class="bg-white fixed w-full h-full flex justify-center items-center" v-if="!signUp">
+    <div class="bg-black p-5 rounded-3xl w-96 h-96 shadow-black shadow-2xl">
+      <form @submit.prevent class="bg-blue-200 p-5 rounded-3xl m-5 shadow-2xl">
         <label for="email" class="text-left block">Email:</label>
         <input id="email" type="text" class="w-full bg-white mb-5 rounded-2xl p-3" required>
-        <label for="password" class="text-left block text-left">Password: </label>
-        <input id="password" type="password" class="w-full bg-white mb-5 rounded-2xl p-3" required>
-        <button type="submit" class="bg-blue-800 px-3 py-1 rounded-2xl text-white w-full mb-5">Login</button>
+        <label for="password" class="block text-left">Password: </label>
+        <input id="password" type="password" class="w-full bg-white mb-5 rounded-2xl p-3 shadow-inner" required>
+        <button type="submit" class="bg-blue-800 hover:bg-blue-400 px-3 py-1 rounded-2xl text-white w-full mb-5">Login</button>
       </form>
       <div class="flex flex-row justify-evenly content-evenly">
-        <button type="submit" class="bg-blue-800 px-3 py-1 rounded-2xl text-white">Forgot Password</button>
-        <button type="submit" class="bg-blue-800 px-3 py-1 rounded-2xl text-white" @click="createAccount">Sign Up</button>
+        <button type="submit" class="bg-blue-800 hover:bg-blue-400 px-3 py-1 rounded-2xl text-white">Forgot Password</button>
+        <button type="submit" class="bg-blue-800 hover:bg-blue-400 px-3 py-1 rounded-2xl text-white" @click="createAccount">Sign Up</button>
       </div>
     </div>
   </div>
   <div v-if="signUp">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi?</p>
+    <form @submit.prevent>
+
+    </form>
   </div>
 </template>
 
