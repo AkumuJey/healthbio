@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <Login />
+  <div class="w-full h-full">
+      <!-- <Login /> -->
   </div>
 </template>
 

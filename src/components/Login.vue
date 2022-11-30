@@ -1,10 +1,21 @@
 <template>
-  <div class="bg-blue-200 fixed w-full h-full flex justify-center items-center">
-    <form class="bg-blue-900 w-80 h-80 rounded-3xl flex justify-center items-center">
-      <label>Email</label>
-      <input type="text">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, et.</p>
-    </form>
+  <div class="bg-black fixed w-full h-full flex justify-center items-center" v-if="!signUp">
+    <div class="bg-white p-5 rounded-3xl w-96 h-96">
+      <form @submit.prevent class="bg-blue-200 p-5 rounded-3xl m-5">
+        <label for="email" class="text-left block">Email:</label>
+        <input id="email" type="text" class="w-full bg-white mb-5 rounded-2xl p-3" required>
+        <label for="password" class="text-left block text-left">Password: </label>
+        <input id="password" type="password" class="w-full bg-white mb-5 rounded-2xl p-3" required>
+        <button type="submit" class="bg-blue-800 px-3 py-1 rounded-2xl text-white w-full mb-5">Login</button>
+      </form>
+      <div class="flex flex-row justify-evenly content-evenly">
+        <button type="submit" class="bg-blue-800 px-3 py-1 rounded-2xl text-white">Forgot Password</button>
+        <button type="submit" class="bg-blue-800 px-3 py-1 rounded-2xl text-white" @click="createAccount">Sign Up</button>
+      </div>
+    </div>
+  </div>
+  <div v-if="signUp">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi?</p>
   </div>
 </template>
 
@@ -13,6 +24,16 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      signUp : false
+    }
+  },
+  methods: {
+    createAccount() {
+      return this.signUp = true
+    }
   }
 }
 </script>
