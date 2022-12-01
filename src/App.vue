@@ -1,10 +1,16 @@
 <template>
-  <login v-if="login" @click="loginSuccess"/>
-  <nav class="bg-slate-400 text-white sticky top-0">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <div>
+      <nav class="bg-slate-400 text-white sticky top-0">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </nav>
+    </div>
+    <div class="fixed w-full h-full">
+      <login />
+    </div>
+  </div>
+  <router-view />
 </template>
 
 <script>
@@ -29,13 +35,13 @@ export default {
 </script>
 
 <style>
-#app {
+<!-- #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
+} -->
 
 nav {
   padding: 30px;
