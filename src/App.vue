@@ -1,6 +1,6 @@
 <template>
   <login v-if="login" @click="loginSuccess"/>
-  <nav class="bg-slate-400 text-white">
+  <nav class="bg-slate-400 text-white sticky top-0">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
@@ -45,7 +45,7 @@ nav a {
   font-weight: bold;
   color: black;
   background: white;
-  padding: 20px;
+  padding: 10px 20px 10px;
   font-size: 20px;
   border-radius: 10px;
 }
