@@ -10,7 +10,7 @@
             <input  id="Lname" type="text" class="w-full rounded p-2 bg-blue-50 focus:bg-white" required placeholder="Last Name" v-model="lname">
             <label for="emali" class="block text-left m-2">EMAIL:</label>
             <input id="emali" type="email" class="w-full rounded p-2 bg-blue-50 focus:bg-white" required placeholder="example@email.com" v-model="email">
-            <button type="submit" class="bg-gray-800 py-2 px-5 rounded my-3 text-white" @click="">SAVE</button>
+            <button type="submit" class="bg-gray-800 py-2 px-5 rounded my-3 text-white">SAVE</button>
          </form>
       </div>
       <div>
