@@ -1,6 +1,6 @@
 <template>
     <div class="p-5 grid place-content-center h-screen w-screen bg-gray-800">
-        <div class="w-96 rounded-3xl">
+        <div class="w-72 sm:w-1/2 rounded-3xl sm:mx-auto">
           <form action="#" class="bg-blue-200 p-5 rounded-xl">
             <label for="email" class="">Enter Email:</label>
             <input type="email" name="email" id="email" class="w-full rounded-xl shadow-2xl focus:outline-none p-2">
