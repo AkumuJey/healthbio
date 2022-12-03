@@ -1,20 +1,18 @@
 <template>
     <div>
-      <nav class="bg-slate-400 text-white text-center py-5 sticky top-0 w-screen">
-        <router-link to="/" class="text-black font-bold px-8 py-3 rounded-xl" >Home</router-link> |
-        <router-link to="/about" class="text-black font-bold px-8 py-3 rounded-xl">About</router-link>
+      <nav class="bg-gray-800 text-white text-center py-5 sticky top-0 w-screen">
+        <router-link :to="{ name: 'home' }" class="font-bold px-8 py-3 rounded-xl" >Home</router-link> |
+        <router-link :to="{ name: 'about' }" class="font-bold px-8 py-3 rounded-xl">About</router-link>
       </nav>
       <router-view />
     </div>
 </template>
 
 <script>
-import Login from '@/components/Login.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    Login
   },
   data() {
     return{
