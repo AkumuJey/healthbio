@@ -1,27 +1,31 @@
 <template>
- <div class="w-full">
-  <div v-for="i in body" :key="i.id" class="bg-blue-200 p-5 mt-5 rounded-xl w-3/4 mx-auto shadow-md">
-    <h1 class="text-center font-bold">{{ i.title }}</h1>
-    <p>{{ i.content}}</p>
-  </div>
+ <div class="w-full h-full">
+    <div class="bg-blue-200 w-72 p-5" @submit.prevent="bodyMassIndex">
+        <form>
+            <label for="weight">Weight (Kg)</label>
+            <input type="number" name="weight" id="weight" :v-model="weight" min="40" max="200" class="w-full" required>
+            <label for="height">Height (m)</label>
+            <input type="number" name="height" id="weight" :v-model="height" class="w-full" required>
+            <button type="submit" class="bg-blue-600 p-2">Calculate BMI</button>
+        </form>
+    </div>
+    <div>
+        <p>Body Mass Index: {{ BMI }} kg/m<sup>2</sup></p>
+    </div>
  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "@vue/reactivity";
 
-const body = ref([
-    {
-        id: 23,
-        title: 'When The Sun Goes Down',
-        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque error distinctio ratione deserunt magnam cumque autem unde, nam, voluptatibus consequuntur aut tenetur amet adipisci. Ratione inventore eligendi nulla voluptate sunt dolor cupiditate quis voluptas aliquam eveniet, doloribus architecto doloremque ad ipsam ipsum perspiciatis sapiente voluptatem illum ab, reprehenderit tempora? Adipisci ullam necessitatibus dolor dolorum. Ex quisquam quae distinctio dignissimos nisi tenetur asperiores suscipit deleniti alias libero explicabo, ducimus sunt odio sapiente voluptate quas, ut deserunt non commodi debitis nesciunt cumque repudiandae unde! Velit officia nisi reiciendis ea ad earum, facere et animi similique enim voluptates, explicabo voluptatibus repellendus officiis eaque!'
-    },
-    {
-        id: 24,
-        title: 'The River and the Source',
-        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque error distinctio ratione deserunt magnam cumque autem unde, nam, voluptatibus consequuntur aut tenetur amet adipisci. Ratione inventore eligendi nulla voluptate sunt dolor cupiditate quis voluptas aliquam eveniet, doloribus architecto doloremque ad ipsam ipsum perspiciatis sapiente voluptatem illum ab, reprehenderit tempora? Adipisci ullam necessitatibus dolor dolorum. Ex quisquam quae distinctio dignissimos nisi tenetur asperiores suscipit deleniti alias libero explicabo, ducimus sunt odio sapiente voluptate quas, ut deserunt non commodi debitis nesciunt cumque repudiandae unde! Velit officia nisi reiciendis ea ad earum, facere et animi similique enim voluptates, explicabo voluptatibus repellendus officiis eaque!'
-    }
-])
+const weight = ref(null)
+const height = ref(null)
+
+const BMI = ref(0)
+
+const bodyMassIndex = () => {
+    return BMI = weight/(height * height)
+}
 
 </script>
 
