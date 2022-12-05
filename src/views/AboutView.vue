@@ -1,7 +1,7 @@
 <template>
-    <div class="">
-     <div v-for="i in body" :key="i.id" class="bg-blue-200 p-5 mt-5 rounded-xl w-2/3 mx-auto shadow-md">
-       <h1 class="text-center font-bold">{{ i.title }}</h1>
+    <div class="w-full h-full bg-blue-200 sm:bg-white grid place-content-evenly place-items-center">
+     <div v-for="i in body" :key="i.id" class="bg-blue-200 p-5 mt-5 rounded-xl w-4/5 sm:w-1/2 shadow-md">
+       <h1 class="text-center text-xl font-bold">{{ i.title }}</h1>
        <p>{{ i.content}}</p>
      </div>
     </div>

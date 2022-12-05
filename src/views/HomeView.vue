@@ -1,6 +1,6 @@
 <template>
- <div class="">
-  <div v-for="i in body" :key="i.id" class="bg-blue-200 p-5 mt-5 rounded-xl w-2/3 mx-auto shadow-md">
+ <div class="w-full">
+  <div v-for="i in body" :key="i.id" class="bg-blue-200 p-5 mt-5 rounded-xl w-3/4 mx-auto shadow-md">
     <h1 class="text-center font-bold">{{ i.title }}</h1>
     <p>{{ i.content}}</p>
   </div>
@@ -26,5 +26,7 @@ const body = ref([
 </script>
 
 <style>
-
+* {
+    box-sizing: border-box;
+}
 </style>
