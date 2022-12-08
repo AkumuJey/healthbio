@@ -8,7 +8,7 @@
           <input v-model="password" type="password" name="password" id="password" class="w-full rounded-xl shadow-2xl focus:outline-none p-2">
           <button type="submit" class="bg-blue-800 hover:bg-blue-600 p-2 w-full my-4 rounded-xl text-white">Register</button>
           <div class="">
-            <router-link :to="{ name: 'login' }" class="p-2 text-center block bg-blue-800 hover:bg-blue-600 rounded">Sign in</router-link>
+            <router-link :to="{ name: 'login' }" class="p-2 text-center text-white block bg-blue-800 hover:bg-blue-600 rounded-xl">Sign in</router-link>
           </div>
         </form>  
       </div>
@@ -16,23 +16,23 @@
 </template>
 
 <script setup>
-import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { ref } from "@vue/reactivity";
-import firebase from 'firebase/compat/app'
-import { Auth } from "@firebase/auth";
-import { async } from "@firebase/util";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "vue-router";
 
 const email = ref('');
 const password = ref('')
+const router = useRouter()
+
 const signupRequest = () => {
-   firebase.auth().createUserWithEmailAndPassword(email.value, password.value).then(
-    () => {
-        alert('Registered Successfully!')
-    },
-    (err) => {
-        alert(`Error - ${err.message}`)
+   createUserWithEmailAndPassword(getAuth(), email.value, password.value).then(
+    (data) => {
+      console.log('Successfully Registered');
+     router.push('/login')
     }
-   )
+   ).catch((error) => {
+    alert(error.message)
+   })
 }
 
 

@@ -20,7 +20,7 @@
                     <label class="" for="breathingRate">Breathing Rate</label>
                     <input v-model="breathingRate" type="number" name="breathingRate" min="0" max="100" step="1" id="breathingRate"  required class="w-full p-2 rounded">
             </fieldset>
-            <input type="submit" :value="fBmi" class="bg-blue-600 py-1 px-2 rounded block mx-auto">
+            <input type="submit" value="Submit Vitals" class="bg-blue-600 py-1 px-2 rounded block mx-auto">
         </form>
     </div>
     <div v-if="patientDetails" class="bg-slate-200 p-4 mx-auto">
@@ -46,7 +46,7 @@ const height = ref(null)
 const temp = ref(null)
 const breathingRate = ref(null)
 const systolic = ref(null)
-const diasolic = ref(null)
+const diastolic = ref(null)
 
 
 const BMI = ref(0)

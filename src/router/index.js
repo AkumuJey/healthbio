@@ -1,3 +1,4 @@
+import { getAuth } from 'firebase/auth'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
@@ -6,7 +7,10 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/about',
@@ -31,5 +35,16 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (getAuth().currentUser) {
+      next()
+    } else{
+      alert("You need to sign in")
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
 export default router
