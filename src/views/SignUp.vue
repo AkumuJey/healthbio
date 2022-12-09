@@ -7,6 +7,7 @@
           <label for="password" class="">Enter Password:</label>
           <input v-model="password" type="password" name="password" id="password" class="w-full rounded-xl shadow-2xl focus:outline-none p-2">
           <button type="submit" class="bg-blue-800 hover:bg-blue-600 p-2 w-full my-4 rounded-xl text-white">Register</button>
+          <button @click="signInWithGoogle">Sign In With Google</button>
           <div class="">
             <router-link :to="{ name: 'login' }" class="p-2 text-center text-white block bg-blue-800 hover:bg-blue-600 rounded-xl">Sign in</router-link>
           </div>
@@ -17,7 +18,12 @@
 
 <script setup>
 import { ref } from "@vue/reactivity";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth, 
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "firebase/auth";
 import { useRouter } from "vue-router";
 
 const email = ref('');
@@ -35,6 +41,18 @@ const signupRequest = () => {
    })
 }
 
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(), provider)
+  .then((result) => {
+    console.log(result.user);
+    router.push('/')
+  }).catch(
+    (error) => {
+
+    }
+  )
+}
 
 </script>
 

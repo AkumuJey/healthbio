@@ -1,4 +1,4 @@
-import { getAuth } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
@@ -16,7 +16,10 @@ const routes = [
     path: '/about',
     name: 'about',
     
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/login',
@@ -35,9 +38,23 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-router.beforeEach((to, from, next) => {
+
+const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const removeListener = onAuthStateChanged(
+      getAuth(),
+      (user) => {
+        removeListener();
+        resolve(user)
+      },
+      reject
+    )
+  })
+}
+
+router.beforeEach( async (to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (getAuth().currentUser) {
+    if (await getCurrentUser()) {
       next()
     } else{
       alert("You need to sign in")
