@@ -5,6 +5,7 @@
         <router-link :to="{ name: 'about' }" class="font-bold mx-2 px-2 py-1 rounded-xl">About</router-link> | 
         <router-link :to="{ name: 'login' }" class="font-bold px-4 py-1 ml-2 mr-2 rounded-xl" v-if="!isLoggedIn">Login  | </router-link>
         <router-link :to="{ name: 'signUp' }" class="font-bold px-4 py-1 ml-2 rounded-xl">Register</router-link>
+        <router-link :to="{ name: 'PatientDetails' }" class="font-bold px-4 py-1 ml-2 rounded-xl">Patient Detals</router-link>
         <button class="" @click="handleSignOut" v-if="isLoggedIn">Sign Out</button>
       </nav>
       <router-view />

@@ -2,6 +2,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SignUp from '../views/SignUp.vue'
+import PatientDetails from '../views/PatientDetails.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/signUp',
     name: 'signUp',
     component: SignUp
+  },
+  {
+    path: '/patientdetails',
+    name: 'PatientDetails',
+    component: PatientDetails
   }
 ]
 
