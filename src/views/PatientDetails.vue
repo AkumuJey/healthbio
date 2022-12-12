@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-for="tab in tabs" :key="tab" @click="component = tab" class="bg-blue-600 p-2 mx-2 rounded-xl">
+        <button v-for="tab in tabs" :key="tab" @click="component = tab" class="bg-slate-300 p-2 mx-2 rounded-xl active:bg-blue-600">
             {{ tab }}
         </button>
         <keep-alive>
