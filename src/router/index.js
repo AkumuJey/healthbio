@@ -19,7 +19,7 @@ const routes = [
     
     component: () => import('../views/AboutView.vue'),
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   },
   {
