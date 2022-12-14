@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white dark:bg-gray-900">
-      <nav class="bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900">
+      <nav class="fixed top-0 left-0 z-20 p-4 w-full bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="https://flowbite.com" class="flex items-center">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
