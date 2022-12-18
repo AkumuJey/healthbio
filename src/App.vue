@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-white dark:bg-gray-900 mb-10">
-      <nav class="fixed top-0 left-0 z-20 p-4 w-full bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900">
+    <div class="bg-red-300 dark:bg-gray-900 mb-10">
+      <nav class="top-0 left-0 z-20 p-4 w-full bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900 h-auto">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="https://flowbite.com" class="flex items-center">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
@@ -30,7 +30,9 @@
         </div>
       </nav>
 
-      <router-view />
+      <div class="my-5">
+        <router-view/>
+      </div>
             
       <footer class="bottom-0 left-0 z-20 p-4 w-full bg-slate-100 border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.

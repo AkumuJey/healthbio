@@ -25,7 +25,7 @@
 </template>
    
    <script setup>
-   import { ref } from 'vue';
+   import { ref, toRefs } from 'vue';
    
    const body = ref([
        {
@@ -39,6 +39,7 @@
            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque error distinctio ratione deserunt magnam cumque autem unde, nam, voluptatibus consequuntur aut tenetur amet adipisci. Ratione inventore eligendi nulla voluptate sunt dolor cupiditate quis voluptas aliquam eveniet, doloribus architecto doloremque ad ipsam ipsum perspiciatis sapiente voluptatem illum ab, reprehenderit tempora? Adipisci ullam necessitatibus dolor dolorum. Ex quisquam quae distinctio dignissimos nisi tenetur asperiores suscipit deleniti alias libero explicabo, ducimus sunt odio sapiente voluptate quas, ut deserunt non commodi debitis nesciunt cumque repudiandae unde! Velit officia nisi reiciendis ea ad earum, facere et animi similique enim voluptates, explicabo voluptatibus repellendus officiis eaque!'
        }
    ])
+
    
    </script>
    
