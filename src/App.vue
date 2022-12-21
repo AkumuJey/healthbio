@@ -2,9 +2,11 @@
     <div class="">
       <div>
         <nav class="flex justify-between">
-          <div>
+          <div class="flex flex-nowrap gap-4">
               <button @click="toggleMenu">
+               <span>
                 menu
+               </span>
               </button>
             <a href="#">
               <span>
@@ -12,9 +14,10 @@
               </span>
             </a>
           </div>
-          <div class="flex sm:justify-around justify-between sm:gap-6">
+          <div class="flex sm:justify-around justify-between sm:gap-6 w-[60%]">
             <div>
-              <ul id="menuIcon" class="absolute top-8 mx-auto left-8 bg-white h-2/3 w-2/3 sm:flex sm:justify-center">
+              <ul id="menuIcon" class="absolute sm:w-[60%] sm:gap-4 sm:static sm:h-auto top-12 mx-auto left-8 bg-white h-2/3 w-2/3 sm:flex
+               sm:justify-center dark:bg-slate-400">
                 <li><router-link :to="{ name: 'home' }" class="">Home</router-link></li>
                 <li><router-link :to="{ name: 'patientDetails' }" class="">Patient Details</router-link></li>
                 <li><router-link :to="{ name: 'about' }" class="">About</router-link></li>
