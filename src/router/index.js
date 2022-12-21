@@ -35,7 +35,7 @@ const routes = [
   },
   {
     path: '/patientdetails',
-    name: 'PatientDetails',
+    name: 'patientDetails',
     component: PatientDetails
   }
 ]

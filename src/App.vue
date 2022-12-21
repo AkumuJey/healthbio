@@ -3,16 +3,20 @@
       <div>
         <nav class="flex justify-between">
           <div>
+              <button @click="toggleMenu">
+                menu
+              </button>
             <a href="#">
               <span>
                 Jey's Hospital
               </span>
             </a>
           </div>
-          <div class="flex sm:justify-around sm:gap-6">
+          <div class="flex sm:justify-around justify-between sm:gap-6">
             <div>
-              <ul class="sm:flex sm:justify-center">
+              <ul id="menuIcon" class="absolute top-8 mx-auto left-8 bg-white h-2/3 w-2/3 sm:flex sm:justify-center">
                 <li><router-link :to="{ name: 'home' }" class="">Home</router-link></li>
+                <li><router-link :to="{ name: 'patientDetails' }" class="">Patient Details</router-link></li>
                 <li><router-link :to="{ name: 'about' }" class="">About</router-link></li>
               </ul>
             </div>
@@ -38,6 +42,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "./router";
 
 const isLoggedIn = ref(false)
+const menu = ref(false)
 
 let auth;
 onMounted(() => {
@@ -57,7 +62,10 @@ const handleSignOut = () => {
     router.push('/login')
   })
 }
-
+const toggleMenu = () => {
+  let tag = document.getElementById('menuIcon')
+  tag.classList.toggle('hidden')
+}
 
 </script>
 
