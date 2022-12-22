@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './assets/tailwind.css'
 import 'flowbite'
+import VueFormulate from '@braid/vue-formulate'
 
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth"
