@@ -3,15 +3,14 @@ import App from './App.vue'
 import router from './router'
 import './assets/tailwind.css'
 // import 'flowbite'
-// import VueFormulate from '@braid/vue-formulate'
-// import { Vue } from "vue";
+// import { plugin, defaultConfig } from '@formkit/vue'
 
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth"
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
 
-// Vue.use(VueFormulate)
+
 const firebaseConfig = {
   apiKey: "AIzaSyBM9tULdFzQbNnPaqbNahwKR5LYgr7yF6Y",
   authDomain: "health-bio.firebaseapp.com",
@@ -26,4 +25,9 @@ const app = initializeApp(firebaseConfig)
 
 const auth = getAuth(app)
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(
+  router
+  ).mount('#app')
+// createApp(App).use(
+//   router, plugin, defaultConfig
+//   ).mount('#app')
