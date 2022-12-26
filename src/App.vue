@@ -1,9 +1,9 @@
 <template>
     <div class="">
-      <div>
+      <div class="sticky top-0 bg-slate-300 shadow-xl px-5 py-2">
         <nav class="flex justify-between">
           <div class="flex flex-nowrap gap-4">
-              <button @click="toggleMenu">
+              <button @click="toggleMenu" class="sm:hidden">
                <span>
                 menu
                </span>
@@ -16,7 +16,7 @@
           </div>
           <div class="flex sm:justify-around justify-between sm:gap-6 w-[60%]">
             <div>
-              <ul id="menuIcon" class="absolute sm:w-[60%] sm:gap-4 sm:static sm:h-auto top-12 mx-auto left-8 bg-white h-2/3 w-2/3 sm:flex
+              <ul id="menuIcon" :class="{'hidden': menu}" class="absolute px-5 py-2 rounded-2xl sm:gap-4 sm:static sm:h-auto top-12 mx-auto left-8 bg-slate-200 sm:flex
                sm:justify-center dark:bg-slate-400">
                 <li><router-link :to="{ name: 'home' }" class="">Home</router-link></li>
                 <li><router-link :to="{ name: 'patientDetails' }" class="">Patient Details</router-link></li>
@@ -45,7 +45,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "./router";
 
 const isLoggedIn = ref(false)
-const menu = ref(false)
+const menu = ref(true)
 
 let auth;
 onMounted(() => {
@@ -66,8 +66,7 @@ const handleSignOut = () => {
   })
 }
 const toggleMenu = () => {
-  let tag = document.getElementById('menuIcon')
-  tag.classList.toggle('hidden')
+  menu.value = !menu.value
 }
 
 </script>

@@ -1,11 +1,13 @@
 <template>
     <div>
-        <button v-for="tab in tabs" :key="tab" @click="setComponent(tab)" class="bg-slate-300 p-2 mx-2 rounded-xl active:bg-blue-600">
+        <button v-for="tab in tabs" :key="tab" @click="setComponent(tab)" class="bg-slate-300 p-2 mx-2 mt-3 rounded-xl active:bg-blue-600">
             {{ tab }}
         </button>
-        <keep-alive>
-            <component :is="component" />
-        </keep-alive>
+          <keep-alive>
+              <transition name="component">
+                  <component :is="component" />
+              </transition>
+          </keep-alive>
     </div>
   </template>
   
@@ -34,6 +36,7 @@
         'TreatmentPlan'
       ]
       const component = ref('Biodata')
+      const show = ref(false)
   
       const setComponent = (value) => {
         component.value = value
@@ -42,13 +45,33 @@
       return {
         tabs,
         component,
-        setComponent
+        setComponent,
+        show
       }
     }
   }
   </script>
   
   <style>
+  .component-enter-from {
+    @apply opacity-0 transform translate-x-[-60px]
+   
+  }
+  .component-enter-to {
+   @apply opacity-100 transform translate-x-0
+  }
+  .component-enter-active {
+    @apply transition duration-500 ease-in
+  }
+  .component-leave-from {
+    @apply opacity-100 transform translate-x-0
+  }
+  .component-leave-to {
+    @apply opacity-0 transform translate-x-[100px]
+  }
+  .component-leave-active {
+    @apply transition duration-500 ease-out
+  }
   
   </style>
 
