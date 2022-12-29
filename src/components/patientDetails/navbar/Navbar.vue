@@ -14,10 +14,10 @@
            menu
           </span>
          </button>
-        <ul id="menuIcon" :class="{'hidden': menu}" class="absolute px-5 py-2 md:rounded-2xl
+        <ul id="menuIcon" :class="{'hidden': hideMenu}" class="absolute px-5 py-2 md:rounded-2xl
          md:gap-4 md:static md:h-auto h-screen 
          w-full top-[100%] mx-auto left-0 bg-slate-200 md:flex
-         md:justify-center dark:bg-slate-400">
+          dark:bg-slate-400">
           <li><router-link
             :to="{ name: 'home' }" class="">Home
           </router-link></li>
@@ -45,11 +45,13 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue"
+import { onMounted, ref, watch, watchEffect } from "vue"
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import router from "../../../router";
+import { useRoute } from "vue-router";
+
 const isLoggedIn = ref(false)
-const menu = ref(true)
+const hideMenu = ref(true)
 
 let auth;
 onMounted(() => {
@@ -70,8 +72,14 @@ const handleSignOut = () => {
   })
 }
 const toggleMenu = () => {
-  menu.value = !menu.value
+  hideMenu.value = !hideMenu.value
 }
+
+const route = useRoute()
+watch(
+  route,
+  () => hideMenu.value = true
+)
 
 
 
