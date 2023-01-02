@@ -1,14 +1,11 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import SignUp from '../views/SignUp.vue'
-import PatientDetails from '../views/PatientDetails.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView,
+    component: () => import('../views/HomeView.vue'),
     meta: {
       requiresAuth: true
     }
@@ -16,7 +13,6 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    
     component: () => import('../views/AboutView.vue'),
     meta: {
       requiresAuth: false
@@ -31,12 +27,12 @@ const routes = [
   {
     path: '/signUp',
     name: 'signUp',
-    component: SignUp
+    component: () => import('../views/SignUp.vue')
   },
   {
     path: '/patientdetails',
     name: 'patientDetails',
-    component: PatientDetails
+    component: () => import('../views/PatientDetails.vue')
   }
 ]
 

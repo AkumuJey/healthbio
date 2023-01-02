@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './assets/tailwind.css'
 // import 'flowbite'
-// import { plugin, defaultConfig } from '@formkit/vue'
+import { plugin, defaultConfig } from '@formkit/vue'
 
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth"
@@ -25,9 +25,15 @@ const app = initializeApp(firebaseConfig)
 
 const auth = getAuth(app)
 
-createApp(App).use(
+const mainApp = createApp(App)
+
+mainApp.use(plugin, defaultConfig)
+mainApp.use(
   router
-  ).mount('#app')
+  )
+mainApp.mount('#app')
+
+
 // createApp(App).use(
 //   router, plugin, defaultConfig
 //   ).mount('#app')

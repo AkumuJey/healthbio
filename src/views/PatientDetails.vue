@@ -3,11 +3,11 @@
         <button v-for="tab in tabs" :key="tab" @click="setComponent(tab)" class="bg-slate-300 p-2 mx-2 mt-3 rounded-xl active:bg-blue-600">
             {{ tab }}
         </button>
-          <keep-alive>
               <transition name="component">
+                <keep-alive>
                   <component :is="component" />
+                </keep-alive>
               </transition>
-          </keep-alive>
     </div>
   </template>
   
