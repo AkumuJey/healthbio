@@ -10,6 +10,10 @@
           <FormKitSchema :schema="biodataSchemaArray"
           :classes="formkitClassess" 
           />
+          <FormKit type="form">
+          <FormKit type="text" />
+
+          </FormKit>
       </div>
     </div>
   </template>
