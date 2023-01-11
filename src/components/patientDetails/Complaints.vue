@@ -1,37 +1,84 @@
 <script setup>
 import { ref, watch } from "vue";
+
 const complaints = ref({
-  symptoms: 'fff',
-  duration: 6
+  // name: "",
+  // age: 0,
+  // admissionDate: '',
+  // residence: ''
 })
-const formData = ref({
-  username: "jose@gmail.com",
-  password: "******"
-})
-const handleSubmit = (data) => {
+const enterForm = (data) => {
   console.log(data)
+  complaints.value = data
+  console.log(complaints);
 }
-const typing = false
-watch( () => complaints.symptoms,
-(newValue, oldValue) => console.log(newValue, oldValue))
 
 
 </script>
 <template>
     <div>
       <div>
-          <FormKit type="form" :value="formData">
-            <h1>Login</h1>
-            <FormKit type="text" label="Username" name="username"/>
-            <FormKit type="text" label="Password" name="password"/>
-          </FormKit>
-          <FormKit type="form" :value="complaints" @submit="handleSubmit">
-            <h1>Login</h1>
-            <FormKit type="text" label="Symptoms" name="symptoms"/>
-            <FormKit type="text" label="Duration" name="duration"/>
-          </FormKit>
-          <p v-if="typing">Typing.....</p>
-          <p>{{ complaints.symptoms }}</p>
+          <FormKit type="form" submit-label="Save Details" :value="complaints" @submit="enterForm">
+            <h1>Patient information</h1>
+            <FormKit
+              name="id"
+              type="number"
+              label="Patient Number"
+              validation="required|length:9"
+              min="0"
+              validation-visibility="live"
+            />
+            <FormKit
+              type="text"
+              label="Full Names"
+              validation="required|text"
+              validation-visibility="live"
+              name="name"
+            />
+            <FormKit
+            name="age"
+            type="number"
+            label="Age"
+            min="0"
+            max="120"
+            validation="required|number"
+            validation-visibility="live"
+            />
+            <FormKit
+            name="admissionDate"
+            type="date"
+            label="Date of Admission"
+            help="Please key in the date"
+            validation="required|date"
+            validation-visibility="live"
+          />
+          <FormKit
+          type="date"
+          label="Date of Birth"
+          validation="required|date_before:2023-01-11"
+          validation-visibility="live"
+          name="date of birth"
+          />
+          <FormKit
+          type="select"
+          label="Gender"
+          placeholder="Gender"
+          :options="{
+            male: 'Male',
+            female: 'Female'
+          }"
+          validation="required"
+          validation-visibility="live"
+          name="gender"
+          />
+          <FormKit
+            type="text"
+            label="Residence"
+            validation="required"
+            validation-visibility="live"
+            name="residence"
+          />
+        </FormKit>
       </div>
     </div>
   </template>
